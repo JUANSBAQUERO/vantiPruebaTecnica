@@ -1,0 +1,33 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <div class="py-3 text-center">
+            <img src="/logos/vanti-logo.webp" class="img-fluid w-75" alt="logo vanti">
+        </div>
+        <form [formGroup]="formLoginData" (ngSubmit)="login()">
+            <div class="mb-3">
+                <input-label-animation labelText="Usuario" formControlName="username" type="email" [formControlName]="'username'" (valueChange)="updateFormControlValue('username', $event)"></input-label-animation>
+            </div>
+            <div class="text-danger text-xs mt-4" *ngIf="formLoginData.get('username')?.hasError('required') && isFocus">
+                Email es requerido.
+            </div>
+            <div class="text-danger text-xs mt-4" *ngIf="formLoginData.get('username')?.hasError('email') && isFocus">
+                Ingresa un correo electrónico válido.
+            </div>
+            <div [ngClass]="isFocus ? 'mb-4' : 'mb-5'"  class="position-relative">
+                <input-label-animation labelText="Contraseña" formControlName="password" [type]="showPassword ? 'text' : 'password'" [formGroup]="formLoginData" (valueChange)="updateFormControlValue('password', $event)"></input-label-animation>
+                <div class="position-absolute top-100 start-100 translate-middle cursor-pointer" (click)="viewPassword()">
+                    <i [ngClass]="showPassword ? 'bi-eye-fill' : 'bi-eye-slash-fill'"  class="me-4 pe-1"></i>
+                </div>
+            </div>
+            <div class="text-danger text-xs mb-3" *ngIf="formLoginData.get('password')?.hasError('required') && isFocus">
+                Contraseña es requerida.
+            </div>
+            <div class="text-danger text-xs mb-3" *ngIf="formLoginData.get('password')?.hasError('minlength') && isFocus">
+                Contraseña debe tener al menos 8 caracteres.
+            </div>
+            <div class="text-center mt-5">
+                <button type="submit" class="btn w-75 bg-secondary-app text-dark">Ingresar</button>
+            </div>
+        </form>
+    </div>
+</div>
