@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import "../node_modules/@swimlane/ngx-datatable/themes/bootstrap.css";
+@import '../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(17 52 85) !important; }
@@ -32,4 +34,25 @@ input{
 
 .cursor-pointer{
     cursor: pointer;
+}
+
+.modal-backdrop {
+    display: none !important;
+}
+
+.datatable-body-cell{
+    align-items: center !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+
+@media (max-width: 575.98px) {
+    .ngx-datatable.bootstrap .datatable-footer {
+        height: 100px;
+    }
+
+    .ngx-datatable .datatable-footer .datatable-footer-inner {
+        height: 100px !important;
+    }
 }

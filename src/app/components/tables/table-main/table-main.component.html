@@ -1,0 +1,76 @@
+<div class="justify-content-between d-md-flex d-block">
+  <div class="input-group mb-3 w-lg-25">
+    <input type="text" class="form-control" placeholder="Buscar..." (input)="applyFilter($event)">
+    <span class="input-group-text"><i class="bi bi-search"></i></span>
+  </div>
+  <button class="btn bg-primary-app text-white fs-btn-add px-3" data-bs-toggle="modal" data-bs-target="#createTodo" (click)="changeOverlay()">
+    <i class="bi bi-plus-square"></i> Nueva tarea
+  </button>
+</div>
+
+<ngx-datatable
+  class="bootstrap"
+  style="height: 400px;"
+  [rows]="rows"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="50"
+  [limit]="10"
+  [rowHeight]="80"
+  [count]="rows.length"
+  [scrollbarV]="true"
+  [scrollbarH]="true"
+  [loadingIndicator]="true">
+
+  <ngx-datatable-column [flexGrow]="1.5" name="ID usuario" prop="userId">
+    <ng-template #userId ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+        <input class="form-control" type="number" value="{{ row.userId }}" [(ngModel)]="row.userId" [disabled]="!isEditable[rowIndex]">
+    </ng-template>
+  </ngx-datatable-column> 
+
+  <ngx-datatable-column [flexGrow]="1.5" name="Título" prop="title">
+    <ng-template  #title ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value" let-row="row">
+      <textarea class="form-control" type="text" value="{{ row.title }}" [(ngModel)]="row.title" [disabled]="!isEditable[rowIndex]"></textarea>
+    </ng-template>
+  </ngx-datatable-column> 
+
+  <ngx-datatable-column [flexGrow]="1.5" name="Estado">
+    <ng-template #completed ngx-datatable-cell-template let-row="row" let-rowIndex="rowIndex">
+      <ng-container *ngIf="!isEditable[rowIndex]">
+        <div class="text-center fs-6">
+          <span *ngIf="row.completed; else pending" class="badge bg-success">Realizado</span>
+          <ng-template #pending><span class="badge bg-warning text-dark">Pendiente</span></ng-template>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="isEditable[rowIndex]">
+        <div class="form-check form-switch d-flex justify-content-center align-items-center">
+          <input class="form-check-input cursor-pointer" type="checkbox" [(ngModel)]="row.completed">
+        </div>
+      </ng-container>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column [flexGrow]="0.5">
+    <ng-template #acciones let-row="row" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+      <button class="btn btn-warning me-2 px-2" *ngIf="!isEditable[rowIndex]" 
+      (click)="isEditable[rowIndex]=!isEditable[rowIndex]">
+        <i class="bi bi-pencil-square text sm" ></i>
+      </button>
+      <button class="btn btn-success me-2 px-2" *ngIf="isEditable[rowIndex]" 
+      (click)="save(row, rowIndex);">
+        <i class="bi bi-floppy2 text sm"></i>
+      </button>
+      <button class="btn btn-danger me-2 px-2" *ngIf="isEditable[rowIndex]" (click)="cancelEdit(row, rowIndex)">
+        <i class="bi bi-x-circle text sm"></i>
+      </button>
+      <button class="btn btn-danger px-2" (click)="deleteRow(row)">
+        <i class="bi bi-trash3 text sm"></i>
+      </button>
+    </ng-template>
+  
+  </ngx-datatable-column>
+  
+</ngx-datatable>
+
+<app-modal-new-todo (saveNewRow)="addRow($event)" [isOverlay]="isOverlay" (overlayChanged)="overlayChanged($event)"></app-modal-new-todo>

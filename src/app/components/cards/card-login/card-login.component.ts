@@ -41,12 +41,14 @@ export class CardLoginComponent {
     if (this.formLoginData && this.formLoginData.valid) {
       this.authService.login(this.formLoginData.value).then((result) => {
         if (!result.includes("Error")) {
-          console.log('Success: Credenciales correctas');
+          window.location.href = 'admin/dashboard';
         } else {
+          const message = result.split('Error: ')
           Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: result
+            confirmButtonColor: 'rgb(17 52 85)',
+            text: message[1]
           })
         }
       }).catch((err: any) => {

@@ -1,0 +1,33 @@
+<div *ngIf="isOverlay" class="bg-black overlay"></div>
+
+<div class="modal fade" id="createTodo" tabindex="-1" aria-labelledby="createTodoLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="createTodoLabel">Nueva Tarea</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="changeOverlay()"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="title" class="form-label text-black-50 bg-white">Id usuario</label>
+                <input type="text" class="form-control" [(ngModel)]="userId" id="userId" name="userId">
+                </div>
+            <div class="mb-3">
+                <label for="title" class="fform-label text-black-50 bg-white">Título</label>
+                <input type="text" class="form-control" [(ngModel)]="title" id="title" name="title">
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" [(ngModel)]="completed" checked>
+                <label class="form-label text-black-50 bg-white" for="flexSwitchCheckChecked">{{ completed ? 'Completada' : 'Pendiente'}}</label>
+            </div>
+            <div class="text-danger text-xs mb-3" *ngIf="message">
+                Por favor ingrese todos los campos.
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn bg-secondary-app" data-bs-dismiss="modal" (click)="changeOverlay()">Cancelar</button>
+          <button type="button" class="btn bg-primary-app text-white" (click)="onSaveNewRow()">Agregar</button>
+        </div>
+      </div>
+    </div>
+</div>

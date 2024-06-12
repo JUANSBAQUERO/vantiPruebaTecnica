@@ -49,6 +49,7 @@ export class AuthService {
 
     logout(): void {
         localStorage.clear();
+        window.location.href = "";
     }
 
     isTokenExpired(token: string): boolean {
