@@ -5,7 +5,17 @@
 @import '../node_modules/@swimlane/ngx-datatable/assets/icons.css';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(17 52 85) !important; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+body.light-mode {
+    background-color: rgb(246 204 92);
+    color: #ffffff;
+}
+
+body.dark-mode {
+    background-color: rgb(17 52 85);
+    color: #000000;
+}
 
 .bg-primary-app{
     background-color: rgb(17 52 85) !important;
@@ -48,11 +58,23 @@ input{
 
 
 @media (max-width: 575.98px) {
-    .ngx-datatable.bootstrap .datatable-footer {
-        height: 100px;
-    }
-
-    .ngx-datatable .datatable-footer .datatable-footer-inner {
-        height: 100px !important;
-    }
+    .ngx-datatable {
+        .datatable-footer-inner {
+          display: flex;
+          flex-flow: row nowrap; 
+          justify-content: space-between; 
+          > .page-count {
+            padding-right: 0 !important;
+          }
+          > .datatable-pager {
+            margin: 0 !important;
+            flex: 0 0 auto !important;
+            > .pager {
+              
+              display: flex !important;
+              flex-flow: row nowrap;
+            }
+          }
+        }
+      }
 }

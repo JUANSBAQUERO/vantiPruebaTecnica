@@ -29,10 +29,10 @@ export class ModalNewTodoComponent {
 
     this.saveNewRow.emit({ userId: this.userId, title: this.title, completed: this.completed });
 
-    const modalElement = document.getElementById('creatTodo');
+    const modalElement = document.getElementById('createTodo');
     if (modalElement) {
       modalElement.classList.remove('show');
-      modalElement.setAttribute('aria-modal', 'false');
+      modalElement.setAttribute('data-bs-dismiss', 'modal');
     }
 
     this.isOverlay = false;

@@ -1,12 +1,17 @@
 <div>
     <nav class="navbar bg-body-tertiary position-fixed shadow navbar-sticky">
         <div class="container">
-            <a class="navbar-brand">
+            <a class="navbar-brand w-lg-50">
                 <img src="/logos/vanti-logo.webp" class="img-fluid w-75" alt="logo vanti">
             </a>
-            <span class="h-100 fs-3 cursor-pointer" (click)="logout()">
-                <i class="bi bi-door-closed"></i>
-            </span>
+            <div class="text-center">
+                <span class="h-100 fs-3 cursor-pointer me-5" (click)="toggleTheme()">
+                    <i [ngClass]="isDark ? 'bi bi-brightness-high' : 'bi bi-moon-stars'" class="text-dark"></i>
+                </span>
+                <span class="h-100 fs-3 cursor-pointer" (click)="logout()">
+                    <i class="bi bi-door-closed text-dark"></i>
+                </span>
+            </div>
         </div>
     </nav>
     <div class="container mt-5 pt-5 d-flex justify-content-center align-items-center" style="height: 90vh;">

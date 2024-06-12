@@ -54,6 +54,7 @@ export class TableMainComponent implements OnInit {
 
   addRow(newRow: { userId: number; title: string; completed: boolean}) {
     this.rows = [...this.rows, newRow];
+    this.originalRows = [...this.rows];
   }
 
   save(row: any, rowIndex: string){
@@ -105,6 +106,10 @@ export class TableMainComponent implements OnInit {
   }
 
   changeOverlay(){
+    const modalElement = document.getElementById('createTodo');
+    if (modalElement) {
+      modalElement.setAttribute('data-bs-dismiss', '');
+    }
     this.isOverlay = true;
   }
 

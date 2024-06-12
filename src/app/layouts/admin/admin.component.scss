@@ -3,3 +3,13 @@
     width: 100%; 
     z-index: 1020;
 }
+
+.w-lg-50{
+    width: 20%;
+}
+
+@media (max-width: 575.98px) {
+    .w-lg-50{
+        width: 50%;
+    }
+}
