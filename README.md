@@ -37,6 +37,13 @@ Para instalar y ejecutar la aplicación localmente, sigue estos pasos:
 4. Inicia la aplicación con el comando `ng serve`.
 5. Accede a la aplicación en tu navegador web en la dirección `http://localhost:4200`.
 
+## Credenciales de acceso
+
+Para ingresar a la app debe autenticarse con las siguientes credenciales:
+
+- **user**: baqueromorenoj@gmail.com.
+- **password**: 2eW7x#Yf@9T!qR3
+
 ## Despliegue en Netlify
 
 La aplicación VantiApp ha sido desplegada con Netlify. Puedes acceder a la versión desplegada en el siguiente enlace:
