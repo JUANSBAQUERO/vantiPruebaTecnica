@@ -37,6 +37,7 @@ export class CardLoginComponent {
   viewPassword() {
     this.showPassword = !this.showPassword;
   }
+  
   login() {
     if (this.formLoginData && this.formLoginData.valid) {
       this.authService.login(this.formLoginData.value).then((result) => {

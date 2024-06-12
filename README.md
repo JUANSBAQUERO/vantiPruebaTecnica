@@ -1,27 +1,48 @@
 # VantiApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+VantiApp es una aplicación CRUD (Create, Read, Update, Delete) construida con Angular que permite realizar operaciones básicas de gestión de datos.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Permite crear, leer, actualizar y eliminar datos a través de una interfaz de usuario intuitiva.
+- Utiliza librerías como Bootstrap, Ngx-datatable, CryptoJS y SweetAlert para una experiencia de usuario mejorada.
+- Ofrece una estructura bien organizada y modularizada para facilitar el mantenimiento y la escalabilidad del código.
 
-## Code scaffolding
+## Librerías utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Bootstrap**: Utilizado para los estilos y la estructura visual de la aplicación.
+- **Ngx-datatable**: Utilizado para el manejo de tablas y presentación de datos tabulares.
+- **CryptoJS**: Utilizado para el manejo de JWT (JSON Web Tokens) en la aplicación.
+- **SweetAlert**: Utilizado para mostrar alertas y notificaciones al usuario en caso de errores u otros eventos importantes.
 
-## Build
+## Variables de entorno
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+En el proyecto se utilizan variables de entorno para configurar ciertos aspectos de la aplicación, como URLs de API, claves de acceso, etc. Asegúrate de configurar correctamente estas variables antes de ejecutar la aplicación en diferentes entornos.
 
-## Running unit tests
+### Ejemplo de variables de entorno
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **production**: Este dato es para saber si va para produccción o no.
+- **apiUrll**: URL de la API utilizada por la aplicación.,
+- **secretkey**: Clave secreta utilizada para firmar y verificar los JWT.
+- **user**: Usuario para autenticación y ingreso a la app.
+- **password**: Contraseña para autenticacion y ingreso a la app.
 
-## Running end-to-end tests
+## Instalación
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Para instalar y ejecutar la aplicación localmente, sigue estos pasos:
 
-## Further help
+1. Clona este repositorio en tu máquina local.
+2. Instala las dependencias del proyecto utilizando el comando `npm install`.
+3. Configura las variables de entorno según sea necesario.
+4. Inicia la aplicación con el comando `ng serve`.
+5. Accede a la aplicación en tu navegador web en la dirección `http://localhost:4200`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Despliegue en Netlify
+
+La aplicación VantiApp ha sido desplegada con Netlify. Puedes acceder a la versión desplegada en el siguiente enlace:
+
+`https://cute-semolina-d10f57.netlify.app/`
+
+## Autor
+
+Juan Sebastian Baquero Moreno
